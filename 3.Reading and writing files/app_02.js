@@ -1,5 +1,5 @@
 const fs = require("fs");
-const pathToFile = "./app_02/index.html";
+const pathToFile = "assets/index.html";
 const htmlHeader = `<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,10 +104,9 @@ let table = `
         </tr>
     </tbody>
 </table>`
-function newHtmlFil(file, text) {
-    const htmlFile = `<html lang="en">\r\n${htmlHeader}\r\n<body>\r\n${text}\r\n</body>\r\n</html>
-    `
+function newHtmlFil(file) {
+    const htmlFile = `<html lang="en">\r\n${htmlHeader}\r\n<body>${table}\r\n</body>\r\n</html>`
     return fs.writeFileSync(file, htmlFile, {encoding: "utf8", flag: "a"});
 }
 
-newHtmlFil(pathToFile, table)
+newHtmlFil(pathToFile);
